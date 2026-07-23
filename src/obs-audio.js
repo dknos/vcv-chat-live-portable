@@ -23,7 +23,7 @@ function defaultConfigPath() {
 }
 
 export class ObsAudioMeter extends EventEmitter {
-  constructor({ inputName = 'SAMSON LIVE MIC', cameraSource = 'DroidCam OBS', configPath = defaultConfigPath(), logger = console } = {}) {
+  constructor({ inputName = 'Performance Mic', cameraSource = 'DroidCam OBS', configPath = defaultConfigPath(), logger = console } = {}) {
     super();
     this.inputName = inputName;
     this.cameraSource = cameraSource;
@@ -132,8 +132,7 @@ export class ObsAudioMeter extends EventEmitter {
     if (message.op !== 5 || message.d?.eventType !== 'InputVolumeMeters') return;
     const inputs = message.d.eventData?.inputs || [];
     const wanted = this.inputName.toLowerCase();
-    const input = inputs.find((item) => String(item.inputName).toLowerCase() === wanted)
-      || inputs.find((item) => /samson|focusrite/i.test(String(item.inputName)));
+    const input = inputs.find((item) => String(item.inputName).toLowerCase() === wanted);
     if (!input) return;
     const channels = Array.isArray(input.inputLevelsMul) ? input.inputLevelsMul : [];
     const peak = Math.max(0, ...channels.flat().map((value) => Number(value) || 0));
