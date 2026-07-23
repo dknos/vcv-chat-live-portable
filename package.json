@@ -1,0 +1,24 @@
+{
+  "name": "vcv-chat-live",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Safe YouTube live-chat generative music bridge for VCV Rack with an OBS overlay",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "doctor": "node scripts/doctor.mjs",
+    "dry-run": "DRY_RUN=1 CHAT_SOURCE=stdin QUANTIZE_BARS=0 node src/main.js",
+    "simulate": "node scripts/simulate.js",
+    "build:patch": "node scripts/build-rack-patch.mjs",
+    "build:doom": "node scripts/build-doom-jazz-patch.mjs",
+    "test": "node --test",
+    "check": "node --check src/main.js && node --check src/obs-audio.js && node --check src/model-control.js && node --check src/music.js && node --check src/song-influences.js && node --check src/pattern-grammar.js && node --check src/sequencer.js && node --check src/osc.js && node --check src/chat-source.js && node --check src/image-command.js && node --check src/sample-command.js && node --check src/tts-command.js && node --check src/overlay.js && node --check public/gpu-hand-tracker.mjs && node --check scripts/build-rack-patch.mjs && node --check scripts/build-doom-jazz-patch.mjs && node --check scripts/verify-obs-phone-video.mjs && node --check scripts/prepare-obs-mic-vision.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.35"
+  }
+}
