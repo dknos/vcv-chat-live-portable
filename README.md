@@ -8,6 +8,9 @@ The repository contains no API keys, OAuth tokens, stream keys, cookies, browser
 profiles, generated chat data, generated images, or generated audio. Runtime
 credentials belong only in `.env` or another local secret store.
 
+Bundled browser-tracking models and their verified upstream checksums are listed
+in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 ## Signal path
 
 ```text
@@ -21,6 +24,16 @@ YouTube live chat -> atomic session JSON -> Node safety/command bridge
 Models never receive shell, file, OBS, YouTube, credential, image, sampler, TTS,
 or admin authority. `!ai` responses are parsed back through the existing
 allowlisted music command layer before any OSC value changes.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/overlay-phone.png" width="48%" alt="Psychedelic sound-reactive portrait overlay simulator">
+  <img src="docs/screenshots/overlay-matrix.png" width="48%" alt="Matrix point-cloud portrait overlay simulator">
+</p>
+
+These are privacy-safe simulator captures: no camera frame, viewer identity,
+credential, generated chat media, or operator filesystem data is present.
 
 ## Quick start
 
@@ -44,6 +57,8 @@ npm run simulate
 ```
 
 Edit `.env` for local paths and devices. `.env` is ignored by Git.
+Set `OBS_AUDIO_REACTIVE_INPUT` to the exact OBS input name for the performance
+microphone.
 
 ## Connect YouTube chat
 

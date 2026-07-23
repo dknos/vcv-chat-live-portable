@@ -6,7 +6,7 @@ param(
   [string]$ProjectRoot = '',
   [string]$ChatFile = '',
   [int]$OverlayPort = 9392,
-  [string]$AudioReactiveInput = 'SAMSON LIVE MIC',
+  [string]$AudioReactiveInput = 'Performance Mic',
   [string]$CameraReactiveSource = 'Mic Vision Feed',
   [switch]$Immediate
 )

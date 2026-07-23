@@ -30,7 +30,7 @@ const overlay = new OverlayServer({
   logger: console,
 });
 const obsAudio = new ObsAudioMeter({
-  inputName: process.env.OBS_AUDIO_REACTIVE_INPUT || 'SAMSON LIVE MIC',
+  inputName: process.env.OBS_AUDIO_REACTIVE_INPUT || 'Performance Mic',
   cameraSource: process.env.OBS_CAMERA_REACTIVE_SOURCE || 'DroidCam OBS',
   logger: console,
 });
